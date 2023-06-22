@@ -1,4 +1,4 @@
-from brownie import SimpleStorage,StorageFactory, accounts
+from brownie import SimpleStorage,StorageFactory,FundMe, accounts
 from brownie.network import gas_price
 from brownie.network.gas.strategies import LinearScalingStrategy
 
@@ -14,6 +14,14 @@ def deploy_simplestorage():
     print(simplestorage)
     return simplestorage
 
+def deploy_fundMe():
+    fundMe = FundMe.deploy({
+        "from" : accounts[0],
+        "gas_price": gas_strategy 
+    })
+    print(fundMe)
+    return fundMe
+
 def deploy_storagefactory():
     storagefactory = StorageFactory.deploy({
         "from" : accounts[0],
@@ -25,3 +33,4 @@ def deploy_storagefactory():
 def main():
     deploy_simplestorage()
     deploy_storagefactory()
+    deploy_fundMe()

@@ -1,0 +1,12 @@
+dotenv: .env
+keys:
+  private_key: ${PRIVATE_KEY}
+
+networks:
+  defoult: Ethereum
+
+  development:
+    verify: False
+
+  goerli:
+    verify: True
